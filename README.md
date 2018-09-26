@@ -1,6 +1,6 @@
 ## Simple LINQ-like library for C++ (POC)
 
-Works with arbitary containers, std::vector\<T\> by default
+Works with arbitrary containers, std::vector\<T\> by default
 
 Implemnted Expressions:
   - Select
