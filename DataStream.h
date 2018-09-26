@@ -39,7 +39,7 @@ public:
         return std::make_unique<SelectEmitter<DataT, OutDataT>>(GetEmitter(), filter).get();
     }
 
-    template<typename InDataT, typename OutDataT, typename std::enable_if<std::is_same< DataT, DataStream<InDataT> >::value, int>::type = 0>
+    template<typename InDataT, typename OutDataT, typename std::enable_if_t<std::is_same< DataT, DataStream<InDataT> >::value, int> = 0>
     DataStream<OutDataT> Flatten(std::function<OutDataT( const InDataT )> filter) const {
         return std::make_unique<FlattenEmitter<InDataT, OutDataT>>(GetEmitter(), filter).get();
     }

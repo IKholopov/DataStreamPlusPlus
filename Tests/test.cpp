@@ -1,3 +1,4 @@
+#include <DataContainer.h>
 #include <Recurrent.h>
 #include <iostream>
 #include <gtest/gtest.h>
@@ -141,7 +142,6 @@ TEST ( IntegralTests,  Fibbonaci) {
         std::cout << v << std::endl;
         ASSERT_EQ(*it++, v);
     }
-    ASSERT_TRUE(it == expected.end());
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -175,6 +175,7 @@ TEST ( IntegralTests,  WordCount) {
                 return DataStream<std::string>(&container);
             })
            .Flatten<std::string, std::string>([](const std::string s) { return s; });
+
     auto frequences = tokens.GroupBy<std::string>([](const std::string str){
                     return str;
             })
